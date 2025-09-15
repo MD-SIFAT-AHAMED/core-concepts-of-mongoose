@@ -1,10 +1,16 @@
-const express = require('express')
-const app = express()
+import express, { Application, Request, Response } from 'express';
+import cros from 'cors';
 
+const app: Application = express();
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
+//parsers
+app.use(express.json());
+app.use(cros());
 
+app.get('/', (req: Request, res: Response) => {
+  const a = 10;
+
+  res.send(a);
+});
 
 export default app;
